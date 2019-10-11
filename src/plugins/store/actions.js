@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
+  // TODO: move this hardwired url to .env file
   baseURL: 'http://localhost:3000'
 })
 
