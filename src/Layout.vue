@@ -47,7 +47,7 @@ export default {
 
   computed: {
     routes () {
-      return filter(routes, { drawInMenu: true })
+      return filter(routes, route => route.meta.drawInMenu === true)
     }
   }
 }
