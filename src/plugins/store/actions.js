@@ -9,32 +9,21 @@ export default {
     if (!search) search = ''
 
     let { data } = await api.get('/todos', { params: { search: search } })
-
-    if (data.code) {
-      commit('showError', data)
-    } else {
-      commit('updateTodos', data)
-    }
+    commit('updateTodos', data)
   },
 
-  async createTodo ({ state, commit, dispatch }, todo) {
-    let { data } = await api.post('/todos', todo)
-
-    if (data.code) commit('showError', data)
+  async createTodo ({ state, dispatch }, todo) {
+    await api.post('/todos', todo)
     await dispatch('getTodos', state.searchText)
   },
 
-  async updateTodo ({ state, commit, dispatch }, { id, todo }) {
-    let { data } = await api.put(`/todos/${id}`, todo)
-
-    if (data.code) commit('showError', data)
+  async updateTodo ({ state, dispatch }, { id, todo }) {
+    await api.put(`/todos/${id}`, todo)
     await dispatch('getTodos', state.searchText)
   },
 
-  async deleteTodo ({ state, commit, dispatch }, id) {
-    let { data } = await api.delete(`/todos/${id}`)
-
-    if (data.code) commit('showError', data)
+  async deleteTodo ({ state, dispatch }, id) {
+    await api.delete(`/todos/${id}`)
     await dispatch('getTodos', state.searchText)
   }
 }

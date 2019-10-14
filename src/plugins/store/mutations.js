@@ -7,15 +7,6 @@ export default {
     state.searchText = text
   },
 
-  showError (state, error) {
-    state.errorText = `Error no. ${error.errno} (${error.code})`
-    state.snackbarState = true
-  },
-
-  closeSnackbar (state) {
-    state.snackbarState = false
-  },
-
   setDialogState (state, payload) {
     state.dialogState = payload
   },

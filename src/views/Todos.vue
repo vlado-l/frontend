@@ -5,20 +5,17 @@
         <todo-table />
       </v-col>
     </v-row>
-    <info-snack />
   </v-container>
 </template>
 
 <script>
 import TodoTable from '@/components/Todos/TodoTable'
-import InfoSnack from '@/components/Todos/InfoSnack'
 
 export default {
   name: 'Todos',
 
   components: {
-    TodoTable,
-    InfoSnack
+    TodoTable
   }
 }
 </script>
